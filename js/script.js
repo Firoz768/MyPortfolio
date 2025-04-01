@@ -70,6 +70,10 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             const targetId = this.getAttribute('href');
+            
+            // Skip empty href or href="#" links
+            if (!targetId || targetId === "#") return;
+            
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
@@ -329,6 +333,79 @@ document.head.insertAdjacentHTML('beforeend', `
     .form-success-message i {
         font-size: 3rem;
         margin-bottom: 1rem;
+    }
+
+    /* Enhanced animations */
+    .text-content h1 {
+        animation: gradientText 5s ease infinite;
+        background-size: 200% 200%;
+    }
+
+    .skill-item, .project-card {
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                    box-shadow 0.4s ease,
+                    background-color 0.4s ease;
+    }
+
+    .social-icons a {
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                    box-shadow 0.4s ease, 
+                    background-color 0.4s ease;
+    }
+
+    @keyframes gradientText {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .btn {
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .section-header h2::before {
+        animation: floatText 5s ease-in-out infinite;
+    }
+
+    @keyframes floatText {
+        0%, 100% {
+            transform: translateX(-50%) translateY(0px);
+        }
+        50% {
+            transform: translateX(-50%) translateY(-7px);
+        }
+    }
+
+    /* Smooth scroll behavior */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Back to top button animation */
+    .back-to-top {
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .back-to-top.show {
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+        }
+        70% {
+            box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+        }
     }
 </style>
 `);
