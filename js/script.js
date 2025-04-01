@@ -298,64 +298,9 @@ function initializeAOS() {
     });
 }
 
-// Add 3D effects to elements
-function initialize3DElements() {
-    // Add card-3d class to all skill items
-    document.querySelectorAll('.skill-item').forEach(item => {
-        item.classList.add('card-3d');
-    });
-    
-    // Add icon-3d class to all skill icons
-    document.querySelectorAll('.skill-icon i').forEach(icon => {
-        icon.classList.add('icon-3d');
-    });
-    
-    // Add card-3d class to all project cards
-    document.querySelectorAll('.project-card').forEach(card => {
-        card.classList.add('card-3d');
-    });
-    
-    // Add icon-3d class to project icons
-    document.querySelectorAll('.project-img-placeholder i').forEach(icon => {
-        icon.classList.add('icon-3d');
-    });
-    
-    // Add btn-3d class to all buttons
-    document.querySelectorAll('.btn').forEach(btn => {
-        btn.classList.add('btn-3d');
-    });
-    
-    // Add class to social icons for 3D effect
-    document.querySelectorAll('.social-icons a').forEach(icon => {
-        icon.classList.add('icon-3d');
-    });
-    
-    // Create and add a 3D cube to the home section
-    const homeSection = document.querySelector('.home-section');
-    if (homeSection) {
-        const cubeContainer = document.createElement('div');
-        cubeContainer.className = 'cube-container';
-        cubeContainer.innerHTML = `
-            <div class="cube">
-                <div class="cube-face front"><i class="fas fa-code"></i></div>
-                <div class="cube-face back"><i class="fas fa-palette"></i></div>
-                <div class="cube-face right"><i class="fas fa-mobile-alt"></i></div>
-                <div class="cube-face left"><i class="fas fa-desktop"></i></div>
-                <div class="cube-face top"><i class="fas fa-server"></i></div>
-                <div class="cube-face bottom"><i class="fas fa-database"></i></div>
-            </div>
-        `;
-        
-        // Position the cube in the home section
-        cubeContainer.style.position = 'absolute';
-        cubeContainer.style.right = '10%';
-        cubeContainer.style.top = '30%';
-        
-        // Add the cube to the home section
-        homeSection.appendChild(cubeContainer);
-    }
-    
-    // Add floating animation to some elements
+// Add subtle animations to elements
+function initializeAnimations() {
+    // Add floating animation to section titles and scroll indicator
     document.querySelectorAll('.section-header h2').forEach(header => {
         header.classList.add('float-element');
     });
@@ -364,23 +309,24 @@ function initialize3DElements() {
         el.classList.add('float-element');
     });
     
-    // Add glossy effect to some elements
+    // Add subtle glow effect to skill progress bars
     document.querySelectorAll('.skill-level').forEach(el => {
         el.classList.add('glossy');
     });
     
+    // Add subtle shine to section underlines
     document.querySelectorAll('.underline').forEach(el => {
         el.classList.add('glossy');
     });
     
-    // Add neon glow to selected elements
+    // Add subtle glow to primary buttons
     document.querySelectorAll('.primary-btn').forEach(btn => {
-        btn.classList.add('neon-glow');
+        btn.classList.add('subtle-glow');
     });
 }
 
-// Initialize 3D elements when the page loads
-initialize3DElements();
+// Initialize animations when the page loads
+initializeAnimations();
 
 // Add CSS for animations
 document.head.insertAdjacentHTML('beforeend', `
@@ -424,6 +370,37 @@ document.head.insertAdjacentHTML('beforeend', `
         animation: gradientText 5s ease infinite;
         background-size: 200% 200%;
     }
+    
+    .subtle-glow {
+        box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+        transition: box-shadow 0.3s ease;
+    }
+    
+    .subtle-glow:hover {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+    }
+    
+    .glossy {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .glossy::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+            to bottom right,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.05) 40%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        transform: rotate(30deg);
+        pointer-events: none;
+    }
 
     .skill-item, .project-card {
         transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
@@ -463,6 +440,19 @@ document.head.insertAdjacentHTML('beforeend', `
         }
         50% {
             transform: translateX(-50%) translateY(-7px);
+        }
+    }
+    
+    .float-element {
+        animation: float 4s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
         }
     }
 
