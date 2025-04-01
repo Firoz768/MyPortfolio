@@ -328,6 +328,58 @@ function initializeAnimations() {
 // Initialize animations when the page loads
 initializeAnimations();
 
+// Typing Animation for Hero Section
+function initializeTypingAnimation() {
+    const typingText = document.getElementById('typing-text');
+    if (!typingText) return;
+    
+    const phrases = ['Web Developer', 'UI/UX Designer', 'Frontend Specialist', 'Backend Developer'];
+    let currentPhraseIndex = 0;
+    
+    function setTextContent() {
+        typingText.textContent = phrases[currentPhraseIndex];
+        currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+    }
+    
+    // Set initial text
+    setTextContent();
+    
+    // Change text every 4 seconds (matches the CSS animation duration)
+    setInterval(setTextContent, 4000);
+}
+
+// Initialize typing animation
+initializeTypingAnimation();
+
+// Theme Toggle Functionality
+function initializeThemeToggle() {
+    const themeSwitch = document.getElementById('theme-switch');
+    const body = document.body;
+    
+    // Check for saved theme preference or respect OS preference
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+        body.classList.add('dark-theme');
+        themeSwitch.checked = true;
+    }
+    
+    // Theme switch event listener
+    themeSwitch.addEventListener('change', function() {
+        if (this.checked) {
+            body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            body.classList.remove('dark-theme');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+}
+
+// Initialize theme toggle
+initializeThemeToggle();
+
 // Add CSS for animations
 document.head.insertAdjacentHTML('beforeend', `
 <style>

@@ -48,7 +48,85 @@
     --success-color: #10b981;
     --error-color: #ef4444;
     --warning-color: #f59e0b;
-    
+}
+
+/* Dark Theme Variables */
+.dark-theme {
+    --primary-color: #818cf8;
+    --primary-color-dark: #6366f1;
+    --primary-color-light: #a5b4fc;
+    --secondary-color: #e2e8f0;
+    --secondary-color-light: #f8fafc;
+    --background-light: #1e293b;
+    --background-off-white: #0f172a;
+    --background-dark: #020617;
+    --text-dark: #f8fafc;
+    --text-light: #cbd5e1;
+    --text-white: #ffffff;
+    --border-color: #334155;
+    --accent-color: #fb7185;
+    --accent-color-light: #fecdd3;
+}
+
+/* Dark Theme Specific Styles */
+.dark-theme .header {
+    background-color: var(--background-dark);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .project-img-placeholder {
+    background: linear-gradient(135deg, var(--background-dark) 0%, var(--background-light) 100%);
+}
+
+.dark-theme .section-header h2::before {
+    color: rgba(99, 102, 241, 0.05);
+}
+
+.dark-theme .skill-item,
+.dark-theme .project-card,
+.dark-theme .contact-form-container,
+.dark-theme .about-details {
+    background-color: var(--background-dark);
+    border: 1px solid var(--border-color);
+}
+
+.dark-theme .project-info::before {
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.dark-theme .project-tech span {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .logo a, 
+.dark-theme .nav-link {
+    color: var(--text-white);
+}
+
+.dark-theme .bar {
+    background-color: var(--text-white);
+}
+
+.dark-theme .contact-form input,
+.dark-theme .contact-form textarea {
+    background-color: var(--background-dark);
+    border-color: var(--border-color);
+    color: var(--text-white);
+}
+
+.dark-theme .contact-form input::placeholder,
+.dark-theme .contact-form textarea::placeholder {
+    color: var(--text-light);
+}
+
+.dark-theme .social-icons a {
+    background-color: var(--background-dark);
+    color: var(--text-white);
+}
+
+/* ============ Base Variables ============ */
+:root {
     /* Typography */
     --font-primary: 'Poppins', sans-serif;
     --font-secondary: 'Roboto', sans-serif;
@@ -327,6 +405,66 @@ section {
     width: 100%;
 }
 
+.theme-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: var(--spacing-sm);
+    margin-right: var(--spacing-sm);
+}
+
+.theme-switch {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.switch-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 55px;
+    height: 28px;
+    background: var(--primary-color);
+    border-radius: 100px;
+    position: relative;
+    transition: background-color var(--transition-fast);
+}
+
+.switch-label .fa-sun {
+    color: #f8b500;
+    font-size: 12px;
+    margin-left: 7px;
+}
+
+.switch-label .fa-moon {
+    color: #f1f1f1;
+    font-size: 12px;
+    margin-right: 7px;
+}
+
+.ball {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-switch:checked + .switch-label .ball {
+    transform: translateX(27px);
+}
+
+.theme-switch:checked + .switch-label {
+    background: var(--secondary-color);
+}
+
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -405,6 +543,30 @@ section {
     margin-bottom: var(--spacing-md);
     color: var(--text-light);
     font-weight: 600;
+}
+
+.typing-text {
+    color: var(--primary-color);
+    position: relative;
+    border-right: 3px solid var(--primary-color);
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: 
+        typing 3.5s steps(30, end) infinite,
+        blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    0% { width: 0 }
+    50% { width: 100% }
+    90% { width: 100% }
+    100% { width: 0 }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color) }
 }
 
 .text-content p {

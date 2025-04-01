@@ -31,6 +31,14 @@
                     <div class="bar"></div>
                     <div class="bar"></div>
                 </div>
+                <div class="theme-toggle">
+                    <input type="checkbox" id="theme-switch" class="theme-switch">
+                    <label for="theme-switch" class="switch-label">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                        <span class="ball"></span>
+                    </label>
+                </div>
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
@@ -48,7 +56,7 @@
             <div class="home-content">
                 <div class="text-content">
                     <h1>Hi, I'm <span class="highlight">Your Name</span></h1>
-                    <h2>Professional <span class="highlight">Web Developer</span></h2>
+                    <h2>Professional <span id="typing-text" class="typing-text"></span></h2>
                     <p>Creating beautiful and functional web experiences with passion and expertise.</p>
                     <div class="cta-buttons">
                         <a href="#projects" class="btn primary-btn">View Projects</a>
