@@ -1746,3 +1746,23 @@ section {
     padding: 20px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+/* Dark Mode Contact Form and Footer Fixes */
+.dark-theme .contact-form-container {
+    background-color: var(--background-light);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .contact-form-container h3 {
+    color: var(--text-dark);
+}
+
+.dark-theme .form-group label {
+    color: var(--text-dark);
+}
+
+.dark-theme .contact-form input:focus,
+.dark-theme .contact-form textarea:focus {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary-color);
+}
