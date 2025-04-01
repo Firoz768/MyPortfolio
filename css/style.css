@@ -1748,6 +1748,10 @@ section {
 }
 
 /* Dark Mode Contact Form and Footer Fixes */
+.dark-theme .contact-section {
+    background-color: var(--background-off-white);
+}
+
 .dark-theme .contact-form-container {
     background-color: var(--background-light);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -1761,8 +1765,61 @@ section {
     color: var(--text-dark);
 }
 
+.dark-theme .contact-form input,
+.dark-theme .contact-form textarea {
+    background-color: var(--background-off-white);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-dark);
+}
+
 .dark-theme .contact-form input:focus,
 .dark-theme .contact-form textarea:focus {
     background-color: rgba(255, 255, 255, 0.05);
     border-color: var(--primary-color);
+}
+
+/* Contact Info Box Dark Mode */
+.dark-theme .contact-info {
+    background-color: var(--background-light);
+}
+
+.dark-theme .contact-info h3,
+.dark-theme .contact-info h4 {
+    color: var(--text-dark);
+}
+
+.dark-theme .contact-info p,
+.dark-theme .contact-info a,
+.dark-theme .contact-item p {
+    color: var(--text-light) !important;
+}
+
+.dark-theme .contact-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .contact-item i {
+    color: var(--primary-color);
+}
+
+/* Footer Dark Mode */
+.dark-theme .footer {
+    background-color: var(--background-light);
+}
+
+.dark-theme .footer-content {
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .footer-logo p {
+    color: var(--text-light);
+}
+
+.dark-theme .footer-links ul li a {
+    color: var(--text-light);
+}
+
+.dark-theme .copyright {
+    color: var(--text-light);
+    border-top-color: rgba(255, 255, 255, 0.05);
 }
