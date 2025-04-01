@@ -298,6 +298,90 @@ function initializeAOS() {
     });
 }
 
+// Add 3D effects to elements
+function initialize3DElements() {
+    // Add card-3d class to all skill items
+    document.querySelectorAll('.skill-item').forEach(item => {
+        item.classList.add('card-3d');
+    });
+    
+    // Add icon-3d class to all skill icons
+    document.querySelectorAll('.skill-icon i').forEach(icon => {
+        icon.classList.add('icon-3d');
+    });
+    
+    // Add card-3d class to all project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.classList.add('card-3d');
+    });
+    
+    // Add icon-3d class to project icons
+    document.querySelectorAll('.project-img-placeholder i').forEach(icon => {
+        icon.classList.add('icon-3d');
+    });
+    
+    // Add btn-3d class to all buttons
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.classList.add('btn-3d');
+    });
+    
+    // Add class to social icons for 3D effect
+    document.querySelectorAll('.social-icons a').forEach(icon => {
+        icon.classList.add('icon-3d');
+    });
+    
+    // Create and add a 3D cube to the home section
+    const homeSection = document.querySelector('.home-section');
+    if (homeSection) {
+        const cubeContainer = document.createElement('div');
+        cubeContainer.className = 'cube-container';
+        cubeContainer.innerHTML = `
+            <div class="cube">
+                <div class="cube-face front"><i class="fas fa-code"></i></div>
+                <div class="cube-face back"><i class="fas fa-palette"></i></div>
+                <div class="cube-face right"><i class="fas fa-mobile-alt"></i></div>
+                <div class="cube-face left"><i class="fas fa-desktop"></i></div>
+                <div class="cube-face top"><i class="fas fa-server"></i></div>
+                <div class="cube-face bottom"><i class="fas fa-database"></i></div>
+            </div>
+        `;
+        
+        // Position the cube in the home section
+        cubeContainer.style.position = 'absolute';
+        cubeContainer.style.right = '10%';
+        cubeContainer.style.top = '30%';
+        
+        // Add the cube to the home section
+        homeSection.appendChild(cubeContainer);
+    }
+    
+    // Add floating animation to some elements
+    document.querySelectorAll('.section-header h2').forEach(header => {
+        header.classList.add('float-element');
+    });
+    
+    document.querySelectorAll('.scroll-down').forEach(el => {
+        el.classList.add('float-element');
+    });
+    
+    // Add glossy effect to some elements
+    document.querySelectorAll('.skill-level').forEach(el => {
+        el.classList.add('glossy');
+    });
+    
+    document.querySelectorAll('.underline').forEach(el => {
+        el.classList.add('glossy');
+    });
+    
+    // Add neon glow to selected elements
+    document.querySelectorAll('.primary-btn').forEach(btn => {
+        btn.classList.add('neon-glow');
+    });
+}
+
+// Initialize 3D elements when the page loads
+initialize3DElements();
+
 // Add CSS for animations
 document.head.insertAdjacentHTML('beforeend', `
 <style>

@@ -734,7 +734,23 @@ section {
 
 /* ============ Projects Section ============ */
 .projects-section {
-    background-color: var(--background-dark);
+    background-color: var(--background-off-white);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.projects-section::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: -150px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(var(--primary-color-light), transparent 70%);
+    opacity: 0.1;
+    z-index: 0;
 }
 
 .project-filters {
