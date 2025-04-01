@@ -250,7 +250,264 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Add animation to skill bars
+    // Initialize skill charts using Chart.js
+    const radarChartElement = document.getElementById('skillRadarChart');
+    const frontendChartElement = document.getElementById('frontendChart');
+    const backendChartElement = document.getElementById('backendChart');
+    
+    // Create skill radar charts
+    if (radarChartElement) {
+        const radarChart = new Chart(radarChartElement, {
+            type: 'radar',
+            data: {
+                labels: ['Frontend', 'Backend', 'UI/UX', 'Databases', 'DevOps', 'Mobile'],
+                datasets: [{
+                    label: 'Skill Proficiency',
+                    data: [90, 75, 85, 80, 70, 65],
+                    backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                    borderColor: 'rgba(99, 102, 241, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(99, 102, 241, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(99, 102, 241, 1)',
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 14,
+                                family: "'Poppins', sans-serif",
+                                weight: '500'
+                            },
+                            color: 'var(--text-light)'
+                        },
+                        ticks: {
+                            backdropColor: 'transparent',
+                            color: 'var(--text-light)',
+                            font: {
+                                size: 10
+                            },
+                            max: 100,
+                            min: 0,
+                            stepSize: 20
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        titleFont: {
+                            size: 14,
+                            family: "'Poppins', sans-serif"
+                        },
+                        bodyFont: {
+                            size: 13,
+                            family: "'Poppins', sans-serif"
+                        },
+                        padding: 10,
+                        displayColors: false,
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw + '% Proficiency';
+                            }
+                        }
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    duration: 2000,
+                    easing: 'easeOutQuart'
+                }
+            }
+        });
+    }
+    
+    // Frontend skills chart
+    if (frontendChartElement) {
+        const frontendChart = new Chart(frontendChartElement, {
+            type: 'radar',
+            data: {
+                labels: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Vue.js', 'Responsive Design'],
+                datasets: [{
+                    label: 'Frontend Skills',
+                    data: [95, 90, 85, 80, 70, 95],
+                    backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                    borderColor: 'rgba(99, 102, 241, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(99, 102, 241, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(99, 102, 241, 1)',
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 14,
+                                family: "'Poppins', sans-serif",
+                                weight: '500'
+                            },
+                            color: 'var(--text-light)'
+                        },
+                        ticks: {
+                            backdropColor: 'transparent',
+                            color: 'var(--text-light)',
+                            font: {
+                                size: 10
+                            },
+                            max: 100,
+                            min: 0,
+                            stepSize: 20
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        titleFont: {
+                            size: 14,
+                            family: "'Poppins', sans-serif"
+                        },
+                        bodyFont: {
+                            size: 13,
+                            family: "'Poppins', sans-serif"
+                        },
+                        padding: 10,
+                        displayColors: false,
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw + '% Proficiency';
+                            }
+                        }
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    duration: 1500,
+                    easing: 'easeOutQuart'
+                }
+            }
+        });
+    }
+    
+    // Backend skills chart
+    if (backendChartElement) {
+        const backendChart = new Chart(backendChartElement, {
+            type: 'radar',
+            data: {
+                labels: ['Node.js', 'Python', 'SQL', 'NoSQL', 'PHP', 'RESTful APIs'],
+                datasets: [{
+                    label: 'Backend Skills',
+                    data: [75, 70, 80, 65, 60, 85],
+                    backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                    borderColor: 'rgba(99, 102, 241, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(99, 102, 241, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(99, 102, 241, 1)',
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 14,
+                                family: "'Poppins', sans-serif",
+                                weight: '500'
+                            },
+                            color: 'var(--text-light)'
+                        },
+                        ticks: {
+                            backdropColor: 'transparent',
+                            color: 'var(--text-light)',
+                            font: {
+                                size: 10
+                            },
+                            max: 100,
+                            min: 0,
+                            stepSize: 20
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        titleFont: {
+                            size: 14,
+                            family: "'Poppins', sans-serif"
+                        },
+                        bodyFont: {
+                            size: 13,
+                            family: "'Poppins', sans-serif"
+                        },
+                        padding: 10,
+                        displayColors: false,
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw + '% Proficiency';
+                            }
+                        }
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    duration: 1500,
+                    easing: 'easeOutQuart'
+                }
+            }
+        });
+    }
+    
+    // Add animation to remaining skill bars
     const skillBars = document.querySelectorAll('.skill-level');
     
     // Function to animate skill bars when they come into view
@@ -277,6 +534,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize AOS for scroll animations
     initializeAOS();
+    
+    // Initialize timeline animations
+    initializeTimeline();
 });
 
 // Simple Animation on Scroll functionality
@@ -295,6 +555,34 @@ function initializeAOS() {
     animatedElements.forEach(element => {
         element.classList.add('will-animate');
         observer.observe(element);
+    });
+}
+
+// Timeline Animation
+function initializeTimeline() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    if (timelineItems.length === 0) return;
+    
+    const options = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                timelineObserver.unobserve(entry.target);
+            }
+        });
+    }, options);
+    
+    // Add delay to timeline items for staggered appearance
+    timelineItems.forEach((item, index) => {
+        // Start with opacity 0 and translateY
+        item.style.transitionDelay = `${index * 0.2}s`;
+        timelineObserver.observe(item);
     });
 }
 
