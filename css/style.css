@@ -480,7 +480,7 @@ section {
     left: 3px;
     width: 22px;
     height: 22px;
-    background: #fff;
+    background: #3d3131;
     border-radius: 50%;
     transition: transform 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -624,7 +624,7 @@ section {
 
 .primary-btn::before {
     content: '';
-    position: absolute;
+    position: inherit;
     top: 0;
     left: 0;
     width: 0%;
@@ -1583,7 +1583,10 @@ section {
     width: 40px;
     height: 40px;
     background-color: var(--primary-color);
+
+    /* background-color: cyan; */
     color: var(--text-white);
+    color: black;
     border-radius: 50%;
     display: flex;
     justify-content: center;
